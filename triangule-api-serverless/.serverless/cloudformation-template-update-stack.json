@@ -133,6 +133,25 @@
                       "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/triangule-api-serverless-dev*:*:*"
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "dynamodb:Query",
+                    "dynamodb:Scan",
+                    "dynamodb:GetItem",
+                    "dynamodb:PutItem",
+                    "dynamodb:UpdateItem",
+                    "dynamodb:DeleteItem"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::GetAtt": [
+                        "UsersDynamoDBTable",
+                        "Arn"
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -207,13 +226,18 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/triangule-api-serverless/dev/1671055576095-2022-12-14T22:06:16.095Z/triangule-api-serverless.zip"
+          "S3Key": "serverless/triangule-api-serverless/dev/1671398437499-2022-12-18T21:20:37.499Z/triangule-api-serverless.zip"
         },
         "Handler": "s_api.handler",
         "Runtime": "python3.9",
         "FunctionName": "triangule-api-serverless-dev-api",
         "MemorySize": 1024,
         "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "USERS_TABLE": "requests-history"
+          }
+        },
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -225,14 +249,14 @@
         "ApiLogGroup"
       ]
     },
-    "ApiLambdaVersionNVNyOqZbC7aEKKufGitbwjxFUXbz8nyoKFbjueK48": {
+    "ApiLambdaVersionUdMmAz4WM27Ak8kZ9uQhcxX3vXwQxgjWIxnOeZvLlc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "XtlnDtPfp3rpzYMMfuRJMaRvDhpC3dk6Ik9aYA0TuUs="
+        "CodeSha256": "rx2sTd+mE+B921t71TO57+i/4pJibq17J1NfsLUXcaQ="
       }
     },
     "HttpApi": {
@@ -346,6 +370,28 @@
       },
       "DependsOn": "HttpApiIntegrationApi"
     },
+    "UsersDynamoDBTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "userId",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "userId",
+            "KeyType": "HASH"
+          }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        },
+        "TableName": "requests-history"
+      }
+    },
     "CWLSubFilterApiLogGroupUsEast1": {
       "Type": "AWS::Logs::SubscriptionFilter",
       "Properties": {
@@ -390,7 +436,7 @@
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersionNVNyOqZbC7aEKKufGitbwjxFUXbz8nyoKFbjueK48"
+        "Ref": "ApiLambdaVersionUdMmAz4WM27Ak8kZ9uQhcxX3vXwQxgjWIxnOeZvLlc"
       },
       "Export": {
         "Name": "sls-triangule-api-serverless-dev-ApiLambdaFunctionQualifiedArn"

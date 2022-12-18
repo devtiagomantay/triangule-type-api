@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+.idea/
+.serverless/
+node_modules/
+package.json
+package-lock.json
+*.zip
+
 # Distribution / packaging
 .Python
 build/

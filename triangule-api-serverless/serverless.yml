@@ -38,7 +38,13 @@ functions:
   api:
     handler: wsgi_handler.handler
     events:
-      - httpApi: '*'
+      - http:
+          method: post
+          path: triangle-type
+          integration: lambda
+          response:
+            headers:
+              Cache-Control: "'max-age=0'"
 
 resources:
   Resources:

@@ -3,6 +3,8 @@
 
 The deployment can be made in automate way using the serverless framework and the AWS CLI
 
+More information about how use the serverless framework on SERVERLESS_DOC.md
+
 ``` Work in progess: A script to install all the requirements is in progress ```
 
 

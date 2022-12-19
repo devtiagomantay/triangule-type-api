@@ -9,6 +9,7 @@ def is_triangle_isosceles(t_dim):
 	"""An isosceles triangle has two sides the same length."""
 	if t_dim.count(t_dim[0]) == 2 or t_dim.count(t_dim[1]) == 2:
 		return True
+
 	return False
 
 
@@ -20,6 +21,7 @@ def is_triangle_scalene(t_dim):
 
 
 def calculate_triangle_type(dim):
+	print('calling calculate_triangle_type with dimensions' + str(dim))
 	try:
 		if is_triangle_equilateral(dim):
 			return "equilateral"

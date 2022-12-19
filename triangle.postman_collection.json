@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "e4d2d388-8f3e-4088-a5f4-4966b83c610b",
+		"name": "triangle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6608218"
+	},
+	"item": [
+		{
+			"name": "Calcule triangle type",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dimensions\": \"9,9,9\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7c7679299b.execute-api.us-east-1.amazonaws.com/dev/triangle-type",
+					"protocol": "https",
+					"host": [
+						"7c7679299b",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"triangle-type"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,13 +1,19 @@
 def is_triangle_equilateral(t_dim):
 	"""An equilateral triangle has all three sides the same length."""
+	print('calling is_triangle_equilateral function')
+
 	if t_dim.count(t_dim[0]) == 3:
 		return True
+
 	return False
 
 
 def is_triangle_isosceles(t_dim):
 	"""An isosceles triangle has two sides the same length."""
+	print('calling is_triangle_isosceles function')
+
 	if t_dim.count(t_dim[0]) == 2 or t_dim.count(t_dim[1]) == 2:
+
 		return True
 
 	return False
@@ -15,8 +21,11 @@ def is_triangle_isosceles(t_dim):
 
 def is_triangle_scalene(t_dim):
 	"""A scalene triangle has all sides of different lengths."""
+	print('calling is_triangle_scalene function')
+
 	if t_dim.count(t_dim[0]) == 1 and t_dim.count(t_dim[1]) == 1:
 		return True
+
 	return False
 
 

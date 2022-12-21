@@ -13,7 +13,6 @@ def is_triangle_isosceles(t_dim):
 	print('calling is_triangle_isosceles function')
 
 	if t_dim.count(t_dim[0]) == 2 or t_dim.count(t_dim[1]) == 2:
-
 		return True
 
 	return False

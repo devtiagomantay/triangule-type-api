@@ -1,5 +1,3 @@
-import sys
-import json
 from flask import Flask, jsonify, make_response, request
 from triangle import calculate_triangle_type
 from flask_swagger_ui import get_swaggerui_blueprint
@@ -21,18 +19,13 @@ SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
 )
 app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 
-
-def open_schema_file():
-    """Open the schema file to validate the payload"""
-    try:
-        with open('schemas/dimensions_schema.json', 'r') as file:
-            return json.load(file)
-    except OSError:
-        print('Could not open the schema file')
-        sys.exit()
-
-
-dimensions_schema = open_schema_file()
+dimensions_schema = {
+    "type": "object",
+    "properties": {
+        "dimensions": {"type": "array"}
+    },
+    "required": ["dimensions"]
+}
 
 
 @app.route("/triangle-type", methods=["POST"])

@@ -1,0 +1,100 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Triangle type serverless API",
+    "version": "1.0.0",
+    "title": "Triangle type API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Triangle type serverless API",
+      "description": "Calculate Triangle type given the dimensions"
+    }
+  ],
+  "paths": {
+    "/triangle-type": {
+      "post": {
+        "tags": [
+          "Triangle Type Request"
+        ],
+        "summary": "Request a triangle type calculation",
+        "requestBody": {
+          "description": "Triangle-type Request Post Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/triangleTypePostBody"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "id": {
+        "properties": {
+          "uuid": {
+            "type": "string"
+          }
+        }
+      },
+      "triangleTypePostBody": {
+        "type": "object",
+        "properties": {
+          "dimensions": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "triangleTypeRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "format": "string"
+          }
+        }
+      },
+      "triangleTypeRequests": {
+        "type": "object",
+        "properties": {
+          "triangleTypeRequest": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/triangleTypeRequest"
+            }
+          }
+        }
+      }
+    }
+  }
+}

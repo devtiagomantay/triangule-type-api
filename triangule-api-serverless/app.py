@@ -1,8 +1,21 @@
 from flask import Flask, jsonify, make_response, request
 from triangle import calculate_triangle_type
 from helper import get_values_from_request
+from flask_swagger_ui import get_swaggerui_blueprint
 
 app = Flask(__name__)
+
+
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'
+SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': "triangle-type-api"
+    }
+)
+app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 
 
 @app.route("/triangle-type", methods=["POST"])
@@ -10,7 +23,7 @@ def triangle_type():
     # TODO: validation of post body
     print('Request: ', request.json)
     dimensions = get_values_from_request(request, 'dimensions')
-    res = '
+    res = ''
     if dimensions:
         res = calculate_triangle_type(dimensions)
 

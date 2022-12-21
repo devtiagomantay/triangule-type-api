@@ -10,7 +10,7 @@ URL: https://7c7679299b.execute-api.us-east-1.amazonaws.com/dev/triangle-type
 METHOD: POST
 BODY: Use RAW JSON format. Example:
 {
-    "dimensions": "9,9,9"
+    "dimensions": [9,9,9]
 }
 ```
 

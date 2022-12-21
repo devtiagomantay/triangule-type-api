@@ -19,6 +19,14 @@ BODY: Use RAW JSON format. Example:
 
 ![Infrastructure diagram](https://github.com/devtiagomantay/triangule-type-api/blob/13-implement-the-triangule-type-calculations/triangule-api-serverless/infrastructure.png)
 
+## How to run tests?
+
+Unit tests using pytest and are located in the ```triangle_calc_test.py``` file.
+
+To run type the command:
+
+> pytest
+
 
 ## HOW TO DEPLOY
 

@@ -4,7 +4,7 @@ def get_values_from_request(req, keyword):
 	try:
 		values = req.json.get(keyword)
 	except Exception as e:
-		print('Error retrieving keyword. Detail ' + str(e))
+		print('Error retrieving keyword. Detail:' + str(e))
 		return []
 
 	return values

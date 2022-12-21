@@ -21,18 +21,13 @@ app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 @app.route("/triangle-type", methods=["POST"])
 def triangle_type():
     # TODO: validation of post body
-    print('Request: ', request.json)
+    print('triangle-type endpoint Request: ', request.json)
     dimensions = get_values_from_request(request, 'dimensions')
     res = ''
     if dimensions:
         res = calculate_triangle_type(dimensions)
 
-    return jsonify(message=res)
-
-
-@app.route("/hello")
-def hello():
-    return jsonify(message='Hello from path!')
+    return make_response(jsonify(message=res), 200)
 
 
 @app.errorhandler(400)

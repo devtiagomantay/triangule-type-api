@@ -31,6 +31,6 @@ def check_if_has_3_dimensions(values_list):
 
 def check_if_values_are_numbers(values_list):
 	for each_value in values_list:
-		if not each_value.isnumeric():
+		if not str(each_value).isnumeric():
 			print('Values are not numeric')
 			raise 'Values are not numeric'

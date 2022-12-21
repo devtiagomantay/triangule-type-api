@@ -33,16 +33,16 @@ dimensions_schema = {
 def triangle_type():
     """Calculates the triangle type based on the dimensions"""
     try:
-        print('triangle-type endpoint Request: ', request.json)
+        print('triangle-type endpoint request: ', request.json)
         dimensions = get_payload_dimensions(request, 'dimensions')
         if dimensions:
             res = calculate_triangle_type(dimensions)
-            return jsonify(message=res)
+            return make_response(jsonify(message=res))
 
-        return jsonify(message='Payload is invalid')
+        return make_response(jsonify(message='Payload is invalid'))
     except BaseException as e:
         print('Unknown error on triangle-type endpoint. Detail: ' + str(e))
-        return jsonify(message='Unknown error')
+        return make_response(jsonify(message='Unknown error'))
 
 
 @app.route("/hello")
@@ -65,7 +65,7 @@ def unauthorised_error(_error):
 @app.errorhandler(404)
 def resource_not_found(_error):
     """Return a http 404 error to client"""
-    return make_response(jsonify({'error':'Not found!'}), 404)
+    return make_response(jsonify({'error': 'Not found!'}), 404)
 
 
 @app.errorhandler(500)

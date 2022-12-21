@@ -7,9 +7,7 @@ The API documentation is made using Swagger `under construction`
 
 ### Documentation
 The API documentation is provided by Swagger where is possible to see the OpenAPI v3 specification and test the API endpoints 
-
-
-
+> https://7c7679299b.execute-api.us-east-1.amazonaws.com/swagger
 
 
 ## Infrastructure diagram
@@ -46,18 +44,17 @@ python -m flask run
 127.0.0.1 - - [21/Dec/2022 18:54:33] "GET /swagger/favicon-32x32.png HTTP/1.1" 200 -
 ```
 
-`OBS: For now the database will not be used locally, so just the triangle-type endpoint will work properly, the history of the requests will not be available.`
+`OBS: For now the database will not be available locally, so just the /triangle-type endpoint will work properly. So the history of the requests will not be available since there is no persistence`
 
 ## How to run tests?
 
-
 ### Test API endpoints
 
-You can also use the swagger endpoint, the postman collection or do it manually (using curl or a web browser for instance):
+You can use the swagger endpoint, the postman collection or do it manually (using curl or a web browser for instance):
 ```
 URL: https://7c7679299b.execute-api.us-east-1.amazonaws.com/dev/triangle-type
 METHOD: POST
-BODY: Use RAW JSON format. Example:
+BODY: Use JSON/RAW format. Example:
 {
     "dimensions": [9,9,9]
 }
@@ -73,11 +70,11 @@ To run type the command:
 
 ## How to deploy in AWS
 
-The deployment can be made in automate way using the serverless framework and the AWS CLI
+The deployment can be made in automate way using the **serverless framework** and the **AWS CLI**
 
 More information about how use the serverless framework on SERVERLESS_DOC.md
 
-``` Work in progess: A script to install all the requirements is in progress ```
+``` Work in progess: A script to install all the requirements in one command ```
 
 Requirements:
 * Python 3.9 (A virtual environment is recommended)

@@ -3,7 +3,6 @@ def get_values_from_request(req, keyword):
 	print('calling get_values_from_request function')
 	try:
 		values = req.json.get(keyword)
-		print('values: ', values)
 	except Exception as e:
 		print('Error retrieving keyword. Detail ' + str(e))
 		return []

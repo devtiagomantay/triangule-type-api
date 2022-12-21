@@ -3,9 +3,8 @@ def is_triangle_equilateral(t_dim):
 	print('calling is_triangle_equilateral function')
 
 	if t_dim.count(t_dim[0]) == 3:
-		print('found it true')
 		return True
-	print('found it false')
+
 	return False
 
 
@@ -14,9 +13,9 @@ def is_triangle_isosceles(t_dim):
 	print('calling is_triangle_isosceles function')
 
 	if t_dim.count(t_dim[0]) == 2 or t_dim.count(t_dim[1]) == 2:
-		print('found it true')
+
 		return True
-	print('found it false')
+
 	return False
 
 
@@ -25,9 +24,8 @@ def is_triangle_scalene(t_dim):
 	print('calling is_triangle_scalene function')
 
 	if t_dim.count(t_dim[0]) == 1 and t_dim.count(t_dim[1]) == 1:
-		print('found it true')
 		return True
-	print('found it false')
+
 	return False
 
 

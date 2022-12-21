@@ -1,13 +1,16 @@
 # TRIANGLE TYPE API
 This project exposes an API that calculates the triangle type given its dimensions
 
-The API documentation is made using Swagger `under construction`
+Live API
+https://e20i1w5aog.execute-api.us-east-1.amazonaws.com
+
+The API documentation is made using Swagger
 
 ## API
 
 ### Documentation
 The API documentation is provided by Swagger where is possible to see the OpenAPI v3 specification and test the API endpoints 
-> https://7c7679299b.execute-api.us-east-1.amazonaws.com/swagger
+> https://e20i1w5aog.execute-api.us-east-1.amazonaws.com/swagger
 
 
 ## Infrastructure diagram

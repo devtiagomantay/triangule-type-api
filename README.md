@@ -1,8 +1,14 @@
 # TRIANGLE TYPE API
 This project exposes an API that calculates the triangle type given its dimensions
 
-Live API
+### Live API
 https://e20i1w5aog.execute-api.us-east-1.amazonaws.com
+
+### Endpoints
+
+Calculate the triangle type
+`/triangle-type`
+
 
 The API documentation is made using Swagger
 
